@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomToolbar">
+        <attr name="title" format="string" />
+        <attr name="back_visibility" format="boolean" />
+        <attr name="menu_visibility" format="boolean" />
+        <attr name="close_back_visibility" format="boolean" />
+        <attr name="toolbar_background_color" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomProgressView">
+        <attr name="error_message" format="string" />
+        <attr name="progress_image" format="integer" />
+        <attr name="progress_background_color" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomRatingBar">
+        <attr name="star_rating" format="float" />
+        <attr name="star_size" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomItemSettingView">
+        <attr name="setting_text" format="string" />
+        <attr name="setting_text_color" format="integer" />
+        <attr name="setting_icon" format="integer" />
+        <attr name="next_arrow_icon" format="boolean" />
+        <attr name="setting_line_visibility" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomSocialView">
+        <attr name="facebook_title" format="string" />
+        <attr name="google_title" format="string" />
+        <attr name="facebook_color" format="integer" />
+        <attr name="google_color" format="integer" />
+    </declare-styleable>
+</resources>

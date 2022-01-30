@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_navigation_height">65dp</dimen>
+    <dimen name="action_toolbar_size">70dp</dimen>
+    <dimen name="tab_height">40dp</dimen>
+    <dimen name="filter_item_height">60dp</dimen>
+    <dimen name="authentication_field_width">330dp</dimen>
+</resources>

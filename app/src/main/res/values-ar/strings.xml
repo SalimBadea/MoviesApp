@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">يلا تمرين</string>
+    <string name="ok">تم</string>
+    <string name="cancel">إلغاء</string>
+    <string name="skip">تخطى</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="confirm">تأكيد</string>
+    <string name="send">إرسال</string>
+    <string name="resend">إعادة إرسال</string>
+    <string name="save">حفظ</string>
+    <string name="next">تابع</string>
+    <string name="add">أضف</string>
+    <string name="done">تم</string>
+
+    <!-- Authentication -->
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="sign_up">تسجيل</string>
+    <string name="logout">تسجيل الخروج</string>
+
+    <!-- Common -->
+    <string name="search_your_area">البحث بالمنطقة</string>
+    <string name="confirm_location">تأكيد العنوان</string>
+    <string name="choose_location">أختر العنوان</string>
+
+    <!-- Toast -->
+    <string name="unauthenticated">تحتاج إلى تسجيل الدخول أولاً</string>
+    <string name="no_internet">لا يوجد إتصال بالإنترنت. برجاء التحقق من الشبكة و المحاولة مرة أخرى</string>
+    <string name="enable_gps">قم بتمكين GPS أو أي خدمة موقع أخرى للعثور على الموقع الحالي. انقر فوق "موافق" للانتقال إلى إعدادات خدمات الموقع للسماح لك بذلك.</string>
+</resources>
