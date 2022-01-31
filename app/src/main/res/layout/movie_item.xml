@@ -2,9 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="165dp"
-    android:layout_height="200dp"
-    android:layout_margin="4dp"
-    app:cardCornerRadius="12dp">
+    android:layout_height="250dp"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,10 +12,9 @@
 
         <ImageView
             android:id="@+id/ivPoster"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             android:src="@drawable/ic_logo_background"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +29,7 @@
             android:text="Sing 2"
             android:textColor="@color/white"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@id/ivPoster"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

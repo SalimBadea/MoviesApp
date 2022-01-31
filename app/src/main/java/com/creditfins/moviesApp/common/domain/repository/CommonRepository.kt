@@ -6,5 +6,6 @@ import kotlinx.coroutines.flow.Flow
 interface CommonRepository {
 
     fun getMoviesList(page: Int): Flow<Movie>
+    fun getMovieDetails(id: Int): Flow<Movie>
 
 }

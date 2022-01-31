@@ -8,4 +8,6 @@ import kotlinx.coroutines.flow.Flow
 class CommonRepositoryImpl(private val mCommonRestDataStore: CommonRestDataStore) :
     CommonRepository {
     override fun getMoviesList(page: Int): Flow<Movie> = mCommonRestDataStore.getMoviesList(page)
+
+    override fun getMovieDetails(id: Int): Flow<Movie> = mCommonRestDataStore.getMovieDetails(id)
 }

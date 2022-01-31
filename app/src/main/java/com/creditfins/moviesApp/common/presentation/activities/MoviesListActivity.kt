@@ -58,7 +58,7 @@ class MoviesListActivity : BaseActivity() {
 
         moviesRecycleView()
 
-        mViewModel.getMoviesList(mPage)
+        mViewModel.getMoviesList(pageNumber)
 
     }
 
@@ -115,9 +115,8 @@ class MoviesListActivity : BaseActivity() {
     }
 
     private fun stopLoader() {
-        mIsLoader = false
-        mIsLastPage = true
-        moviesAdapter.isLoaderVisible(mIsLoader)
+        isLoading = false
+        moviesAdapter.isLoaderVisible(isLoading)
         moviesAdapter.notifyDataSetChanged()
     }
 

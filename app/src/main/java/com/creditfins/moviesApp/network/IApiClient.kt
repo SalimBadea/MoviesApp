@@ -13,5 +13,5 @@ interface IApiClient {
 
 
     @GET("{movie_id}")
-    suspend fun getMovieDetails(@Path("movie_id") movie_id: Int): DataResponse<Movie>
+    suspend fun getMovieDetails(@Path("movie_id") movie_id: Int): Movie
 }

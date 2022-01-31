@@ -19,4 +19,9 @@ class CommonRestDataStore {
             emit(it)
         }
     }
+
+    fun getMovieDetails(id: Int) : Flow<Movie> = flow{
+        val response = ApiClient.instance.getMovieDetails(id)
+        emit(response)
+    }
 }
