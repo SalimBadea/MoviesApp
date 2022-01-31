@@ -7,10 +7,6 @@ import android.widget.LinearLayout
 import com.creditfins.moviesApp.R
 import kotlinx.android.synthetic.main.custom_rating_bar.view.*
 
-/**
- * Created by µðšţãƒâ ™ on 05/08/2020.
- *  ->
- */
 class CustomRatingBar : LinearLayout {
 
     constructor(context: Context) : super(context)

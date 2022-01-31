@@ -2,12 +2,9 @@ package com.creditfins.moviesApp.base
 
 import android.content.Context
 import android.os.Bundle
-import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.creditfins.moviesApp.custom.CustomProgressView
 import com.creditfins.moviesApp.helper.MyContextWrapper
-import com.creditfins.moviesApp.helper.SharedPreferencesManager
 
 abstract class BaseActivity : AppCompatActivity() {
     abstract fun loadLayoutResource(): Int
@@ -25,20 +22,5 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        SharedPreferencesManager.setLocal(this@BaseActivity)
-        SharedPreferencesManager.isLang(true)
-    }
-
-
-
-    fun unauthenticated(progress: CustomProgressView?) {
-        progress?.let { it.showUnauthenticated { openLoginScreen() } }
-    }
-
-    fun openLoginScreen() {
-//        startActivityForResult(
-//            Intent(this, LoginActivity::class.java),
-//            UNAUTHORIZED_REQUEST_CODE
-//        )
     }
 }

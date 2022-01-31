@@ -13,10 +13,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.creditfins.moviesApp.R
 import kotlinx.android.synthetic.main.custom_toolbar_layout.view.*
 
-/**
- * Created by µðšţãƒâ ™ on 04/08/2020.
- *  ->
- */
 class CustomToolbar : ConstraintLayout {
     private lateinit var mTitle: TextView
     private lateinit var mBackButton: ImageButton

@@ -3,7 +3,6 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
-    id 'com.google.gms.google-services'
 }
 
 android {
@@ -19,8 +18,8 @@ android {
 
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField('String', 'URL_SERVER', '"http://yallatamren.com/api/"')
-        buildConfigField('String', 'URL_STORAGE', '"http://yallatamren.com/storage/"')
+        buildConfigField('String', 'URL_SERVER', '"https://api.themoviedb.org/3/movie/"')
+        buildConfigField('String', 'URL_STORAGE', '"https://image.tmdb.org/t/p/w500/"')
     }
 
     buildTypes {

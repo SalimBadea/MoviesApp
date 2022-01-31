@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.creditfins.moviesApp.custom.CustomProgressView
 
 abstract class BaseFragment : Fragment() {
 
@@ -20,11 +19,4 @@ abstract class BaseFragment : Fragment() {
         return v
     }
 
-    fun unauthenticated(progress: CustomProgressView?) {
-//        progress?.let {
-//            it.showUnauthenticated {
-//                startActivity(Intent(context, LoginActivity::class.java))
-//            }
-//        }
-    }
 }

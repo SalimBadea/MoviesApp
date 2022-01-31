@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.os.Build
+import com.creditfins.moviesApp.common.domain.model.Movie
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.creditfins.moviesApp.common.domain.model.User
@@ -121,7 +122,7 @@ object SharedPreferencesManager {
         return gson.fromJson(json, type)
     }
 
-    private fun <T> saveList(key: String, list: MutableList<T>) {
+     fun  saveList(key: String, list: MutableList<Movie>) {
         val gson = Gson()
         val json = gson.toJson(list)
         val prefsEditor: SharedPreferences.Editor = prefs.edit()
@@ -131,10 +132,10 @@ object SharedPreferencesManager {
         }
     }
 
-    private fun <T> getList(key: String): MutableList<T>? {
+     fun getList(key: String): MutableList<Movie> {
         val gson = Gson()
         val json = prefs.getString(key, "")
-        val type: Type = object : TypeToken<MutableList<T>>() {}.type
+        val type: Type = object : TypeToken<MutableList<Movie>>() {}.type
         return gson.fromJson(json, type)
     }
 

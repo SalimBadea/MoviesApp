@@ -34,7 +34,7 @@
             android:paddingTop="16dp"
             android:paddingEnd="40dp"
             android:paddingBottom="16dp"
-            android:text="@string/search_your_area"
+            android:text="search_your_area"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

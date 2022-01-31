@@ -18,18 +18,6 @@ fun Exception.errorResponse(): ErrorResponse? {
     return null
 }
 
-fun Exception.unauthorized(): Boolean {
-    if (this is HttpException) {
-        if (response() != null) {
-            val response = response()!!
-            if (response.code() == 401) {
-                return true
-            }
-        }
-    }
-    return false
-}
-
 fun Exception.errorInternet(): Boolean {
     message?.let {
         return it.contains("No address associated with hostname")

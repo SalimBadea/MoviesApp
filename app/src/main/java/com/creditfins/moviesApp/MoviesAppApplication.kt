@@ -15,7 +15,6 @@ class MoviesAppApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        FacebookSdk.sdkInitialize(applicationContext)
         init(applicationContext)
         startKoin {
             androidContext(this@MoviesAppApplication)

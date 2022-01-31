@@ -15,6 +15,7 @@ import androidx.annotation.StringRes
 import androidx.cardview.widget.CardView
 import com.creditfins.moviesApp.R
 import kotlinx.android.synthetic.main.progress_layout.view.*
+import pl.droidsonroids.gif.GifImageView
 
 /**
  * Created by µðšţãƒâ ™ on 04/08/2020.
@@ -145,27 +146,15 @@ class CustomProgressView : CardView {
         }
     }
 
-    fun showUnauthenticated(action: () -> Unit) {
-        hideProgress()
-        showRetryButton()
-        mBtnRetry.text = context.getString(R.string.sign_in)
-        mTvProgress.visibility = View.VISIBLE
-        showImage()
-        mTvProgress.text = context.getString(R.string.unauthenticated)
-        mIvProgress.setImageResource(R.drawable.ic_sign_in)
-        mBtnRetry.setOnClickListener {
-            action()
-            hideInternetData()
-        }
-    }
+
 
     private fun showInternetData() {
         hideProgress()
         showRetryButton()
-        mBtnRetry.text = context.getString(R.string.retry)
+        mBtnRetry.text = "Retry"
         mTvProgress.visibility = View.VISIBLE
         showImage()
-        mTvProgress.text = context.getString(R.string.no_internet)
+        mTvProgress.text = "no_internet"
         mIvProgress.setImageResource(R.drawable.disconnected)
     }
 

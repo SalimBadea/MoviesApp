@@ -3,8 +3,8 @@ package com.creditfins.moviesApp.network
 data class DataResponse<T>(
     val status: String,
     val token: String?,
-    val data: T,
+    val results: MutableList<T>,
     val user: T,
-    val is_active: Int?,
+    val page: Int?,
     val message: String
 )

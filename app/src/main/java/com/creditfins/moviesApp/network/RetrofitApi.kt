@@ -26,9 +26,8 @@ open class RetrofitApi {
         httpClient.addInterceptor {
             val original = it.request()
             val request = original.newBuilder()
-                .addHeader("Authorization", "Bearer " + SharedPreferencesManager.getToken())
+                .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NWRkODhjZGMwYTVhZTcwYzE1YTA3OTg1YTE4ODg4MiIsInN1YiI6IjVjOWEyYTgwOTI1MTQxMTA2N2Y2MzQ4YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hzOC1AMhJll8qZcJ-pumQYNQyo4IM3hQXH7J62HF1Tc")
                 .addHeader("Accept", "application/json")
-                .addHeader("locale", SharedPreferencesManager.getLanguage())
                 .method(original.method, original.body)
                 .build()
             it.proceed(request)

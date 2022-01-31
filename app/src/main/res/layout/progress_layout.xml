@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:background="@drawable/curved_twenty_blue"
-            android:text="@string/retry"
+            android:text="retry"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:visibility="gone"

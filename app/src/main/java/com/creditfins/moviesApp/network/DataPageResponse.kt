@@ -1,3 +1,3 @@
 package com.creditfins.moviesApp.network
 
-data class DataPageResponse<T>(val data: DataListResponse<T>, val per_page: Int = 20)
+data class DataPageResponse<T>(val results: DataResponse<T>, val page: Int = 20)
