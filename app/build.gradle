@@ -18,7 +18,7 @@ android {
 
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField('String', 'URL_SERVER', '"https://api.themoviedb.org/3/movie/"')
+        buildConfigField('String', 'URL_SERVER', '"https://api.themoviedb.org/3/"')
         buildConfigField('String', 'URL_STORAGE', '"https://image.tmdb.org/t/p/w500/"')
     }
 

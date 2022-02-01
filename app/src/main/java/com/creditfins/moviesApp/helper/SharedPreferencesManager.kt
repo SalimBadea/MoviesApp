@@ -122,7 +122,7 @@ object SharedPreferencesManager {
         return gson.fromJson(json, type)
     }
 
-     fun  saveList(key: String, list: MutableList<Movie>) {
+     fun <T> saveList(key: String, list: MutableList<Movie>) {
         val gson = Gson()
         val json = gson.toJson(list)
         val prefsEditor: SharedPreferences.Editor = prefs.edit()
@@ -132,10 +132,10 @@ object SharedPreferencesManager {
         }
     }
 
-     fun getList(key: String): MutableList<Movie> {
+     fun <T> getList(key: String): MutableList<T> {
         val gson = Gson()
         val json = prefs.getString(key, "")
-        val type: Type = object : TypeToken<MutableList<Movie>>() {}.type
+        val type: Type = object : TypeToken<MutableList<T>>() {}.type
         return gson.fromJson(json, type)
     }
 

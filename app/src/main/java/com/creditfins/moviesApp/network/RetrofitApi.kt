@@ -28,6 +28,7 @@ open class RetrofitApi {
             val request = original.newBuilder()
                 .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1NWRkODhjZGMwYTVhZTcwYzE1YTA3OTg1YTE4ODg4MiIsInN1YiI6IjVjOWEyYTgwOTI1MTQxMTA2N2Y2MzQ4YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hzOC1AMhJll8qZcJ-pumQYNQyo4IM3hQXH7J62HF1Tc")
                 .addHeader("Accept", "application/json")
+                .addHeader("Content-Type", "application/json;charset=utf-8")
                 .method(original.method, original.body)
                 .build()
             it.proceed(request)

@@ -17,7 +17,8 @@
         android:theme="@style/Theme.YallaTamren"
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
-        <activity android:name=".common.presentation.activities.MovieDetailsActivity"></activity>
+        <activity android:name=".common.presentation.activities.ReviewActivity"></activity>
+        <activity android:name=".common.presentation.activities.MovieDetailsActivity" />
         <activity android:name=".common.presentation.activities.MoviesListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
