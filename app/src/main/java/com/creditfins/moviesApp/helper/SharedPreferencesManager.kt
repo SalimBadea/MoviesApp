@@ -18,7 +18,7 @@ object SharedPreferencesManager {
     private const val TOKEN = "TOKEN"
     private const val FIREBASE_TOKEN = "FIREBASE_TOKEN"
     private const val LANGUAGE = "language"
-    private const val CLASS = "class"
+    private const val LIST = "list"
     private const val USER = "user"
     private const val PAGE_COUNT = "page_count"
 
@@ -122,20 +122,20 @@ object SharedPreferencesManager {
         return gson.fromJson(json, type)
     }
 
-     fun <T> saveList(key: String, list: MutableList<Movie>) {
+     fun saveList(list: MutableList<Movie>) {
         val gson = Gson()
         val json = gson.toJson(list)
         val prefsEditor: SharedPreferences.Editor = prefs.edit()
         with(prefsEditor) {
-            putString(key, json)
+            putString(LIST, json)
             commit()
         }
     }
 
-     fun <T> getList(key: String): MutableList<T> {
+     fun getList(): MutableList<Movie>? {
         val gson = Gson()
-        val json = prefs.getString(key, "")
-        val type: Type = object : TypeToken<MutableList<T>>() {}.type
+        val json = prefs.getString(LIST, "")
+        val type: Type = object : TypeToken<MutableList<Movie>>() {}.type
         return gson.fromJson(json, type)
     }
 

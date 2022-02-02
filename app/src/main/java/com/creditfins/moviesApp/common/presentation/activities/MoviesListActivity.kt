@@ -1,14 +1,16 @@
 package com.creditfins.moviesApp.common.presentation.activities
 
 import android.os.Bundle
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.creditfins.moviesApp.R
 import com.creditfins.moviesApp.base.BaseActivity
 import com.creditfins.moviesApp.common.domain.model.Movie
+import com.creditfins.moviesApp.common.presentation.fragments.MoviesFragment
 import com.creditfins.moviesApp.common.presentation.adapters.MoviesAdapter
+import com.creditfins.moviesApp.common.presentation.fragments.FavoritesFragment
 import com.creditfins.moviesApp.common.presentation.viewmodel.MoviesListViewModel
-import com.creditfins.moviesApp.common.presentation.viewmodel.state.MoviesVS
 import com.creditfins.moviesApp.helper.*
 import kotlinx.android.synthetic.main.activity_movies_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,8 +21,6 @@ class MoviesListActivity : BaseActivity() {
     private lateinit var moviesAdapter: MoviesAdapter
     private var mList: MutableList<Movie> = mutableListOf()
     private var mPage = 1
-    private var mIsLoader = false
-    private var mIsLastPage = false
 
     private var pageNumber = 1
     private val itemsCount = 10
@@ -36,88 +36,32 @@ class MoviesListActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (Utils.isNotConnected(Throwable("No Internet Connection"))) {
-            mList = SharedPreferencesManager.getList("Movies")
-        } else {
-            mViewModel.viewstate.observe(this@MoviesListActivity, {
-                when (it) {
-                    is MoviesVS.AddMovie -> {
-                        Logging.log("Movies List Uploaded")
-                        moviesAdapter.AddMovie(it.movie)
-                    }
+        openFragment(MoviesFragment())
 
-                    is MoviesVS.Empty -> {
-                        if (mPage == 1)
-                            mList = SharedPreferencesManager.getList("Movies")
+        tvMovies.setOnClickListener {
+            tvMovies.background = ContextCompat.getDrawable(this, R.drawable.curved_twenty_blue)
+            tvMovies.setTextColor(resources.getColor(R.color.white))
+            tvFavorites.background = ContextCompat.getDrawable(this, R.drawable.curved_ten_white)
+            tvFavorites.setTextColor(resources.getColor(R.color.black))
 
-                        stopLoader()
-                    }
-                }
-            })
+           openFragment(MoviesFragment())
+
         }
 
-        moviesRecycleView()
+        tvFavorites.setOnClickListener {
+            tvMovies.background = ContextCompat.getDrawable(this, R.drawable.curved_ten_white)
+            tvMovies.setTextColor(resources.getColor(R.color.black))
+            tvFavorites.background = ContextCompat.getDrawable(this, R.drawable.curved_twenty_blue)
+            tvFavorites.setTextColor(resources.getColor(R.color.white))
 
-        mViewModel.getMoviesList(pageNumber)
+           openFragment(FavoritesFragment())
 
-    }
-
-    private fun moviesRecycleView() {
-        moviesAdapter = MoviesAdapter()
-        val mLayoutManager = GridLayoutManager(this, 2)
-        rvMovies?.apply {
-            setHasFixedSize(true)
-            layoutManager = mLayoutManager
-            adapter = moviesAdapter
-            isNestedScrollingEnabled = false
-
-            addOnScrollListener(object :RecyclerView.OnScrollListener(){
-
-                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                    super.onScrolled(recyclerView, dx, dy)
-                    visibleItemsCount = mLayoutManager.childCount
-                    totalItemsCount = mLayoutManager.itemCount
-                    pastVisibleItem = mLayoutManager.findFirstVisibleItemPosition()
-
-                    if (dy > 0) {
-                        if (isLoading) {
-                            if (totalItemsCount > previousTotal) {
-                                isLoading = false
-                                previousTotal = totalItemsCount
-
-                            }
-                        }
-
-                        if (!isLoading && (totalItemsCount - visibleItemsCount) <= (pastVisibleItem + threshold)) {
-                            pageNumber++
-                            isLoading = true
-                            mViewModel.getMoviesList(pageNumber)
-                        }
-                    }
-                }
-            })
-
-//            addOnScrollListener(object : PaginationListener(mLayoutManager) {
-//                override fun loadMoreItems() {
-//                    mIsLoader = true
-//                    moviesAdapter.isLoaderVisible(mIsLoader)
-//                    mPage++
-//                    Logging.log("page>> $mPage")
-//
-//                }
-//
-//                override fun isLastPage(): Boolean = mIsLastPage
-//
-//                override fun isLoading(): Boolean = mIsLoader
-//
-//            })
         }
     }
 
-    private fun stopLoader() {
-        isLoading = false
-        moviesAdapter.isLoaderVisible(isLoading)
-        moviesAdapter.notifyDataSetChanged()
+    private fun openFragment(fragment: Fragment){
+        val mTransaction = supportFragmentManager.beginTransaction()
+        mTransaction.replace(R.id.container, fragment)
+        mTransaction.commit()
     }
-
 }

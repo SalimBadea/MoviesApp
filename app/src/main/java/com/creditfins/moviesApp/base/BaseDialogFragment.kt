@@ -17,7 +17,7 @@ abstract class BaseDialogFragment : DialogFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(loadLayoutResource(), container, false)
         if (dialog!!.window != null) {
-            dialog!!.window!!.setBackgroundDrawableResource(R.drawable.curved_ten_white)
+            dialog!!.window!!.setBackgroundDrawableResource(R.drawable.curved_ten_stroke_white)
             dialog!!.window!!.requestFeature(Window.FEATURE_NO_TITLE)
         }
 

@@ -11,8 +11,6 @@ import com.creditfins.moviesApp.common.presentation.viewmodel.AddFavoriteViewMod
 import com.creditfins.moviesApp.common.presentation.viewmodel.MovieDetailsViewModel
 import com.creditfins.moviesApp.common.presentation.viewmodel.MovieReviewViewModel
 import com.creditfins.moviesApp.common.presentation.viewmodel.MoviesListViewModel
-import com.creditfins.moviesApp.helper.ResourceProvider
-import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

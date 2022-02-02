@@ -8,4 +8,7 @@
         android:right="0dip"
         android:bottom="0dip"/>
 
+    <stroke
+        android:color="@color/purple_500"
+        android:width="1dp"/>
 </shape>

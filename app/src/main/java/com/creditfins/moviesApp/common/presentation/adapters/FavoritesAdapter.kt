@@ -11,18 +11,16 @@ import com.creditfins.moviesApp.R
 import com.creditfins.moviesApp.base.OnItemAdapterClickListener
 import com.creditfins.moviesApp.common.domain.model.Movie
 import com.creditfins.moviesApp.common.presentation.activities.MovieDetailsActivity
-import com.creditfins.moviesApp.helper.Logging
-import com.creditfins.moviesApp.helper.PaginationAdapter
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class MoviesAdapter(
+class FavoritesAdapter(
     private val mList: MutableList<Movie> = mutableListOf(),
     private val mCallBack: OnItemAdapterClickListener<Movie>
 ) :
-    PaginationAdapter(mList) {
+    RecyclerView.Adapter<FavoritesAdapter.MoviesHolder>() {
 
-    fun addMovie(movie: Movie) {
-        mList.add(movie)
+    fun removeMovie(movie: Movie) {
+        mList.remove(movie)
         notifyDataSetChanged()
     }
 
@@ -32,16 +30,18 @@ class MoviesAdapter(
     }
 
 
-    override fun addCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
-        MoviesHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesHolder {
+        return MoviesHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.movie_favorite_item, parent, false)
         )
-
-    override fun itemCount(): Int = mList.size
-
-    override fun addBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as MoviesHolder).bind(mList[position])
     }
+
+    override fun onBindViewHolder(holder: MoviesHolder, position: Int) {
+        holder.bind(mList[position])
+    }
+
+    override fun getItemCount(): Int = mList.size
+
 
     inner class MoviesHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -61,9 +61,8 @@ class MoviesAdapter(
                 )
             }
 
-            itemView.ivAddFavorite.setOnClickListener {
-                itemView.ivFavorite.visibility = View.VISIBLE
-                item.favorite = true
+            itemView.ivFavorite.setOnClickListener {
+                item.favorite = false
                 mCallBack.onItemAdapterClicked(item)
             }
         }

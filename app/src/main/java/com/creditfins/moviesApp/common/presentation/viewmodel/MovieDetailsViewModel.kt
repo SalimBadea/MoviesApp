@@ -39,20 +39,4 @@ class MovieDetailsViewModel(
         }
     }
 
-    fun AddFavorite(api_key: String, request: AddFavoriteRequest) {
-
-        viewModelScope.launch {
-            try {
-                io {
-                    mAddFavoriteInteractor.execute(AddFavoriteInteractor.Params(api_key, request)).collect {
-                        ui {
-                            mViewState.value = MoviesVS.AddFavourite(it)
-                        }
-                    }
-                }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
-    }
 }

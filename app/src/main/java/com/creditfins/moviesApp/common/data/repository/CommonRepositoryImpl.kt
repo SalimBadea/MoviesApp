@@ -15,5 +15,5 @@ class CommonRepositoryImpl(private val mCommonRestDataStore: CommonRestDataStore
 
     override fun getMovieReviews(id: Int): Flow<Review> = mCommonRestDataStore.getMovieReview(id)
 
-    override fun addFavorite(api_key: String, addRequest: AddFavoriteRequest): Flow<String> = mCommonRestDataStore.addFavorite(api_key,addRequest)
+    override fun addFavorite(addRequest: AddFavoriteRequest): Flow<String> = mCommonRestDataStore.addFavorite(addRequest)
 }

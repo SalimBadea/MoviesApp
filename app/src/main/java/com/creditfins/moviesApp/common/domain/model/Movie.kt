@@ -12,5 +12,8 @@ data class Movie(
     var release_date: String = "",
     var overview: String = "",
     var vote_average: Double = 0.0,
-    var popularity: String = ""
+    var popularity: String = "",
+    var favorite: Boolean = false,
+    var seletedSize: Int = 0,
+    var position: Int = 0
 ) : Parcelable

@@ -29,7 +29,7 @@ class CommonRestDataStore {
         list.forEach { emit(it) }
     }
 
-    fun addFavorite(api_key: String, addRequest: AddFavoriteRequest): Flow<String> = flow {
-        emit(ApiClient.instance.addtoFavorite(api_key,addRequest).status_message)
+    fun addFavorite(addRequest: AddFavoriteRequest): Flow<String> = flow {
+        emit(ApiClient.instance.addtoFavorite(addRequest).status_message)
     }
 }

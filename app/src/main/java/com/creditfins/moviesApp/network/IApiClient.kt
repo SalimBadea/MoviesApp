@@ -17,5 +17,5 @@ interface IApiClient {
     suspend fun getMovieReviews(@Path("movie_id") movie_id: Int): DataResponse<Review>
 
     @POST("account/8350085/favorite")
-    suspend fun addtoFavorite(@Query("api_key") api_key: String, @Body favoriteRequest: AddFavoriteRequest): DataResponse<String>
+    suspend fun addtoFavorite(@Body favoriteRequest: AddFavoriteRequest): DataResponse<String>
 }

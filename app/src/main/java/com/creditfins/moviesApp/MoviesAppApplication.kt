@@ -1,7 +1,6 @@
 package com.creditfins.moviesApp
 
 import androidx.multidex.MultiDexApplication
-import com.facebook.FacebookSdk
 import com.creditfins.moviesApp.helper.SharedPreferencesManager.init
 import com.creditfins.moviesApp.di.modules
 import io.github.inflationx.calligraphy3.CalligraphyConfig

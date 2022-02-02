@@ -13,5 +13,5 @@ interface CommonRepository {
 
     fun getMovieReviews(id:Int): Flow<Review>
 
-    fun addFavorite(api_key: String, addRequest: AddFavoriteRequest): Flow<String>
+    fun addFavorite(addRequest: AddFavoriteRequest): Flow<String>
 }

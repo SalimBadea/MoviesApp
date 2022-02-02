@@ -31,7 +31,6 @@ class ReviewActivity : BaseActivity() {
         mViewModel.viewstate.observe(this@ReviewActivity, {
             when(it){
                 is ReviewVS.AddReview -> {
-                    Logging.log("Reviews List Uploaded")
                     mAdapter.AddReview(it.review)
                 }
 

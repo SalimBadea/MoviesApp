@@ -15,12 +15,7 @@ import androidx.annotation.StringRes
 import androidx.cardview.widget.CardView
 import com.creditfins.moviesApp.R
 import kotlinx.android.synthetic.main.progress_layout.view.*
-import pl.droidsonroids.gif.GifImageView
 
-/**
- * Created by µðšţãƒâ ™ on 04/08/2020.
- *  ->
- */
 class CustomProgressView : CardView {
     private lateinit var mTvProgress: TextView
     private lateinit var mIvProgress: ImageView

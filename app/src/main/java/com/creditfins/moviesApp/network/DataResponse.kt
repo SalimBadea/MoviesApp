@@ -1,6 +1,5 @@
 package com.creditfins.moviesApp.network
 
-import bolts.Bolts
 
 data class DataResponse<T>(
     val results: MutableList<T>,
